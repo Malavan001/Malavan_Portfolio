@@ -62,7 +62,7 @@ import {
                   sx={{ width: 40, height: 40, mr: 2 }}
                 />
                 <Typography variant="h5" fontWeight="bold">
-                  HEPL (Cavinkare group of companies)
+                  HEPL (Cavinkare group of company)
                 </Typography>
               </Box>
   

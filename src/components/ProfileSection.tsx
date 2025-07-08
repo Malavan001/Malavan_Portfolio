@@ -1,6 +1,6 @@
 import { Box, Button, Typography, IconButton } from "@mui/material";
 import { motion } from "framer-motion";
-import profilePic from "../assets/download.jpg";
+import profilePic from "../assets/malavan-profile.jpg";
 import { useEffect, useState } from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -20,7 +20,7 @@ export default function ProfileSection() {
 
 
   const [text] = useTypewriter({
-    words: ["Hello, I'm Vignesh,"],
+    words: ["Hello, I'm Malavan,"],
     loop: true,
     delaySpeed: 2000,
   });
@@ -28,7 +28,7 @@ export default function ProfileSection() {
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = `${import.meta.env.VITE_BASE_URL}resume.pdf`;
-    link.download = "Vignesh_Resume.pdf";
+    link.download = "Malavan_Resume.pdf";
     link.click();
   };
   
@@ -74,7 +74,7 @@ export default function ProfileSection() {
               mt: 1,
             }}
           >
-            Frontend Developer
+            Software Developer
           </Typography>
         </motion.div>
 
@@ -116,7 +116,7 @@ export default function ProfileSection() {
         <Box sx={{ mt: 3, display: "flex", gap: 2 }}>
           <IconButton
             color="primary"
-            href="https://github.com/Vignesh-S-24"
+            href="https://github.com/Malavan001"
             target="_blank"
             aria-label="GitHub"
           >
@@ -124,7 +124,7 @@ export default function ProfileSection() {
           </IconButton>
           <IconButton
             color="primary"
-            href="https://wa.me/6369667957"
+            href="https://wa.me/9788539254"
             target="_blank"
             aria-label="WhatsApp"
           >
@@ -132,7 +132,7 @@ export default function ProfileSection() {
           </IconButton>
           <IconButton
             color="primary"
-            href="https://www.linkedin.com/in/your-linkedin-username"
+            href="https://www.linkedin.com/in/malavanm"
             target="_blank"
             aria-label="LinkedIn"
           >
@@ -140,7 +140,7 @@ export default function ProfileSection() {
           </IconButton>
           <IconButton
             color="primary"
-            href="mailto:svicky1924@gmail.com"
+            href="mailto:malavan235@gmail.com"
             target="_blank"
             aria-label="Email"
           >

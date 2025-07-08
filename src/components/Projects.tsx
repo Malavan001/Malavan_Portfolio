@@ -5,14 +5,17 @@ import {
   CardContent,
   CardMedia,
   Typography,
-  Button,
 } from "@mui/material";
-import profilePic from "../assets/download.jpg";
+import Convex from "../assets/convex.png";
+import Tixie from "../assets/tixie.png";
+import Neram from "../assets/neram.png";
 import { motion } from "framer-motion";
 
 interface Project {
   title: string;
+  subTitle?: string;
   description: string;
+  techStack: string;
   image: string;
   liveLink: string;
   githubLink: string;
@@ -20,26 +23,32 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Rock-Paper-Scissors Game",
+    title: "Convex",
+    subTitle: "Project Management Tool",
     description:
-      "Created an interactive Rock Paper Scissors game with HTML, CSS, and JavaScript. This project was a great learning experience in building dynamic web applications.",
-    image: profilePic,
+      "Convex is a scalable and dynamic project management web application designed to streamline the planning, tracking, exporting and execution of complex project workflows.",
+    techStack: "React Ts, Redux, MUI, Formik",
+    image: Convex,
     liveLink: "#",
     githubLink: "#",
   },
   {
-    title: "To-DO List Web",
+    title: "Tixie",
+    subTitle: "Ticketing Tool",
     description:
-      "Built a to-do list application using HTML, CSS, and JavaScript. Key features include adding tasks with due dates, deleting tasks, and marking tasks as complete.",
-    image: profilePic,
+      "Tixie is a smart ticket management system designed to streamline issue tracking, escalation, and resolution within organizations through a multi-level workflow and customizable roles.",
+    techStack: "Next Ts, Redux, MUI, Formik",
+    image: Tixie,
     liveLink: "#",
     githubLink: "#",
   },
   {
-    title: "Drive-in cars-rental",
+    title: "Neram",
+    subTitle: "Timesheet Monitor Tool",
     description:
-      'Designed the UI/UX for a "Drive-In Cars Rental" web application in Figma. Focused on creating a seamless and efficient booking process for car rentals.',
-    image: profilePic,
+      'Neram is a daily timesheet management system that allows employees to log work hours and supervisors to review and approve entries for efficient time tracking and project oversight.',
+    techStack: "Next Ts, Redux, MUI, Formik",
+    image: Neram,
     liveLink: "#",
     githubLink: "#",
   },
@@ -119,11 +128,20 @@ const Projects: React.FC = () => {
                 <Typography variant="h6" fontWeight="bold" gutterBottom>
                   {project.title}
                 </Typography>
-                <Typography variant="body2" color="#cbd5e1">
+                <Typography variant="body1" fontWeight="bold" gutterBottom>
+                  {project.subTitle}
+                </Typography>
+                <Typography variant="body2" color="#cbd5e1" sx={{ mb: 2,textAlign: "justify" }}>
                   {project.description}
                 </Typography>
+                <Typography variant="body1" fontWeight="bold" gutterBottom>
+                  Tech Stack :
+                </Typography>
+                <Typography variant="body2" color="#cbd5e1">
+                  {project.techStack}
+                </Typography>
               </CardContent>
-              <Box sx={{ p: 2, display: "flex", gap: 2 }}>
+              {/* <Box sx={{ p: 2, display: "flex", gap: 2 }}>
                 <Button
                   variant="contained"
                   sx={{
@@ -158,7 +176,7 @@ const Projects: React.FC = () => {
                 >
                   Check on GitHub
                 </Button>
-              </Box>
+              </Box> */}
             </Card>
           </motion.div>
         ))}

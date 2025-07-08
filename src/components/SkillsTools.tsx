@@ -1,6 +1,6 @@
 import { Box, Typography, Stack, Grid } from "@mui/material";
 import { FaHtml5, FaCss3Alt, FaJs, FaGithub, FaReact,FaCode } from "react-icons/fa";
-import { SiFigma, SiNextdotjs } from "react-icons/si"; 
+import { SiCanva, SiFigma, SiNextdotjs, SiRedux } from "react-icons/si"; 
 import { motion } from "framer-motion";
 
 
@@ -10,12 +10,14 @@ const programmingLanguages = [
   { label: "Javascript", icon: <FaJs size={40} color="#F7DF1E" /> },
   { label: "React", icon: <FaReact size={40} color="#61DAFB" /> },
   { label: "Next.js", icon: <SiNextdotjs size={40} color="#fff" /> },
+  { label: "Redux", icon: <SiRedux size={40} color="#764abc" /> },
 ];
 
 const toolsTechnologies = [
   { label: "GitHub", icon: <FaGithub size={40} color="#fff" /> },
   { label: "Figma", icon: <SiFigma size={40} color="#A259FF" /> },
   { label: "VS Code", icon: <FaCode size={40} color="#007ACC" /> },
+  { label: "Canva", icon: <SiCanva size={40} color="#00C4CC" /> },
 ];
 
 export default function SkillsTools() {

@@ -87,7 +87,7 @@ export default function Header() {
             ml:4
           }}
         >
-          Vignesh
+          Malavan M
         </Typography>
 
         <Box sx={{ display: "flex", gap: 4 }}>
