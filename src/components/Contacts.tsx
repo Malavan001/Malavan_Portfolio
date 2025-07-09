@@ -203,7 +203,7 @@ const handleSubmit = (e: React.FormEvent) => {
         </Grid>
         <Box mt={3} textAlign="left">
           <Button
-            disabled={isSubmitting}
+            disabled={isSubmitting || !data.firstName || !data.lastName || !data.mailId || !data.phoneNumber || !data.subject || !data.message}
             onClick={handleSubmit}
             type="submit"
             variant="contained"
@@ -253,7 +253,7 @@ const handleSubmit = (e: React.FormEvent) => {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              // color={item.color}
+              color={item.color as any}
             >
               {item.icon}
             </IconButton>

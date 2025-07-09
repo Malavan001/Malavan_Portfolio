@@ -25,7 +25,6 @@ const sections = [
 ];
 
 export default function Header() {
-
   const [activeSection, setActiveSection] = useState("about-me");
   const [drawerOpen, setDrawerOpen] = useState(false);
   const theme = useTheme();
@@ -63,9 +62,7 @@ export default function Header() {
     const style = document.createElement("style");
 
     style.innerHTML = `
-
-      @keyframes shine {
-
+      @keyframes shine 
         0% {
           background-position: 200% center;
         }
@@ -73,134 +70,104 @@ export default function Header() {
           background-position: -200% center;
         }
       }
-
     `;
-
     document.head.appendChild(style);
-
     return () => {
       document.head.removeChild(style);
     };
   }, []);
 
   return (
+    <AppBar
+      position="fixed"
+      elevation={0}
+      sx={{
+        backgroundColor: "#0f172a",
+        boxShadow:
+          "0 4px 6px rgba(159, 104, 240, 0.3), 0 1px 3px rgba(34, 211, 238, 0.2)",
+      }}
+    >
+      <Toolbar sx={{ justifyContent: "space-between", px: 4 }}>
+        <Typography
+          variant="h6"
+          sx={{
+            fontFamily: "Inter, sans-serif",
+            fontWeight: 700,
+            color: "transparent",
+            background: "linear-gradient(to right, #9f68f0, #22d3ee)",
+            backgroundSize: "200% auto",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            animation: "shine 3s linear infinite",
+            px: 1.5,
+            py: 0.5,
+            borderRadius: 1,
+            display: "inline-block",
+            fontSize: "1.8rem",
+            ml: 4,
+          }}
+        >
+          Malavan M
+        </Typography>
 
-      <AppBar
-        position="fixed"
-        elevation={0}
-        sx={{
-          backgroundColor: "#0f172a",
-
-          boxShadow:
-            "0 4px 6px rgba(159, 104, 240, 0.3), 0 1px 3px rgba(34, 211, 238, 0.2)",
-        }}
-      >
-        <Toolbar sx={{ justifyContent: "space-between", px: 4 }}>
-          <Typography
-            variant="h6"
-            sx={{
-              fontFamily: "Inter, sans-serif",
-
-              fontWeight: 700,
-
-              color: "transparent",
-
-              background: "linear-gradient(to right, #9f68f0, #22d3ee)",
-
-              backgroundSize: "200% auto",
-
-              WebkitBackgroundClip: "text",
-
-              backgroundClip: "text",
-
-              animation: "shine 3s linear infinite",
-
-              px: 1.5,
-
-              py: 0.5,
-
-              borderRadius: 1,
-
-              display: "inline-block",
-
-              fontSize: "1.8rem",
-
-              ml: 4,
-            }}
-          >
-            Malavan M
-          </Typography>
-
-          {isMobile ? (
-            <>
-              <IconButton
-                edge="end"
-                color="inherit"
-                onClick={() => setDrawerOpen(true)}
+        {isMobile ? (
+          <>
+            <IconButton
+              edge="end"
+              color="inherit"
+              onClick={() => setDrawerOpen(true)}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              anchor="right"
+              open={drawerOpen}
+              onClose={() => setDrawerOpen(false)}
+            >
+              <Box sx={{ width: 250 }}>
+                <List>
+                  {sections.map(({ label, id }) => (
+                    <ListItem key={id} disablePadding>
+                      <ListItemButton onClick={() => handleScroll(id)}>
+                        <ListItemText primary={label} />
+                      </ListItemButton>
+                    </ListItem>
+                  ))}
+                </List>
+              </Box>
+            </Drawer>
+          </>
+        ) : (
+          <Box sx={{ display: "flex", gap: 4 }}>
+            {sections.map(({ label, id }) => (
+              <Button
+                key={id}
+                onClick={() => handleScroll(id)}
+                sx={{
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 500,
+                  textTransform: "none",
+                  color: "#fff",
+                  fontSize: "1rem",
+                  borderBottom:
+                    activeSection === id
+                      ? "2px solid #8e2de2"
+                      : "2px solid transparent",
+                  borderRadius: 0,
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    borderImage: "linear-gradient(to right, #8e2de2, #4a00e0)",
+                    borderImageSlice: 1,
+                    backgroundColor: "transparent",
+                  },
+                }}
               >
-                <MenuIcon />
-              </IconButton>
-              <Drawer
-                anchor="right"
-                open={drawerOpen}
-                onClose={() => setDrawerOpen(false)}
-              >
-                <Box sx={{ width: 250 }}>
-                  <List>
-                    {sections.map(({ label, id }) => (
-                      <ListItem key={id} disablePadding>
-                        <ListItemButton onClick={() => handleScroll(id)}>
-                          <ListItemText primary={label} />
-                        </ListItemButton>
-                      </ListItem>
-                    ))}
-                  </List>
-                </Box>
-              </Drawer>
-            </>
-          ) : (
-            <Box sx={{ display: "flex", gap: 4 }}>
-              {sections.map(({ label, id }) => (
-                <Button
-                  key={id}
-                  onClick={() => handleScroll(id)}
-                  sx={{
-                    fontFamily: "Inter, sans-serif",
-
-                    fontWeight: 500,
-
-                    textTransform: "none",
-
-                    color: "#fff",
-
-                    fontSize: "1rem",
-
-                    borderBottom:
-                      activeSection === id
-                        ? "2px solid #8e2de2"
-                        : "2px solid transparent",
-
-                    borderRadius: 0,
-
-                    transition: "all 0.3s ease",
-
-                    "&:hover": {
-                      borderImage:
-                        "linear-gradient(to right, #8e2de2, #4a00e0)",
-
-                      borderImageSlice: 1,
-
-                      backgroundColor: "transparent",
-                    },
-                  }}
-                >
-                  {label}
-                </Button>
-              ))}
-            </Box>
-          )}
-        </Toolbar>
-      </AppBar>
- 
+                {label}
+              </Button>
+            ))}
+          </Box>
+        )}
+      </Toolbar>
+    </AppBar>
   );
 }

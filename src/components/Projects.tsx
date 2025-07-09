@@ -84,15 +84,10 @@ const Projects: React.FC = () => {
       <Box
         sx={{
           display: "flex",
+          flexWrap: "wrap",
           gap: 4,
-          overflowX: "auto",
           pb: 2,
           justifyContent: "center",
-          "&::-webkit-scrollbar": { height: 8 },
-          "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "#6a11cb",
-            borderRadius: 4,
-          },
         }}
       >
         {projects.map((project, index) => (
