@@ -80,7 +80,7 @@ export default function ProfileSection() {
 
         <Typography
           mt={3}
-          sx={{ color: "#cbd5e1", maxWidth: "600px", fontSize: "1.1rem" }}
+          sx={{ color: "#cbd5e1", maxWidth: "600px", fontSize: "1.1rem", textAlign:"justify" }}
         >
           Enthusiastic Frontend Developer with expertise in HTML, CSS,
           JavaScript, React.js, Next.js and TypeScript. Skilled in building

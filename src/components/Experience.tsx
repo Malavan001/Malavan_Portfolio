@@ -105,6 +105,7 @@ import {
                         primaryTypographyProps={{
                           fontSize: "1rem",
                           color: "#c9d1d9",
+                          textAlign: "justify",
                         }}
                       />
                     </ListItem>
